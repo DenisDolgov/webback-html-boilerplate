@@ -1,0 +1,57 @@
+// Debug helper
+@if $NODE_ENV != "production" or $DEBUG {
+    body::after { // stylelint-disable-line no-duplicate-selectors
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        z-index: $zindex-modal;
+
+        margin-bottom: -1rem;
+
+        color: $white;
+        font-size: $font-size-sm;
+        line-height: 1rem;
+        white-space: nowrap;
+
+        background-color: $danger;
+        opacity: .8;
+
+        transition: .6s;
+
+        content: "Only visible NODE_ENV=#{$NODE_ENV} or DEBUG=#{$DEBUG}";
+
+        html:hover &,
+        html:focus & {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Debug helper
+@if $PACKAGE_NAME == "MLDigital.Webpack" {
+    body::after { // stylelint-disable-line no-duplicate-selectors
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        z-index: $zindex-modal;
+
+        margin-bottom: -1rem;
+
+        color: $white;
+        font-size: $font-size-sm;
+        line-height: 1rem;
+        white-space: nowrap;
+
+        background-color: $danger;
+        opacity: .8;
+
+        transition: .6s;
+
+        content: "Please rename the `name` in `package.json` file";
+
+        html:hover &,
+        html:focus & {
+            margin-bottom: 0;
+        }
+    }
+}

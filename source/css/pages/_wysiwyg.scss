@@ -1,0 +1,61 @@
+.wysiwyg {
+    img:not([class]) {
+        /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+        @extend .img-responsive;
+    }
+    // image with caption
+    figure {
+        /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+        @extend .figure;
+
+        img {
+            /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+            @extend .figure-img;
+        }
+
+        figcaption {
+            /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+            @extend .figure-caption;
+        }
+    }
+    // default tables
+    table:not([class]) {
+        /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+        @extend .table;
+        /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+        @extend .table-bordered;
+        width: 100%;
+    }
+    // disabled table
+    table[border="0"] {
+        width: inherit;
+
+        background: transparent;
+        border: 0;
+
+        > thead,
+        > tbody,
+        > tfoot {
+            /* stylelint-disable-next-line selector-max-compound-selectors */
+            > tr {
+                /* stylelint-disable-next-line selector-max-compound-selectors, max-nesting-depth */
+                > th,
+                > td {
+                    background: transparent;
+                    border: 0;
+                }
+            }
+        }
+    }
+    // image aligment
+    img[align="left"],
+    img.pull-left {
+        float: left;
+        margin-right: $font-size-base;
+    }
+    img[align="right"],
+    img.pull-right {
+        float: right;
+        margin-left: $font-size-base;
+    }
+}

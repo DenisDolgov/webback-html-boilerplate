@@ -1,0 +1,10 @@
+--- title: Главная homepage: true description: og_image: ---
+
+{% extends "partials/layouts/index.html" %}
+
+{% import "partials/macros/macros.html" as macros %}
+
+{% block content %}
+    index page
+    {{ macros.svg_icon('example') }}
+{% endblock %}

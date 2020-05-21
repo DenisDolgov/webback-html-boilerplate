@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ APP.LANGUAGE }}">
+<head>
+    <meta charset="utf-8">
+    <title>{% if not PAGE.homepage %}{{ PAGE.title }} &mdash; {% endif %}{{ APP.SHORT_NAME }}</title>
+    <meta name="description" content="{{ PAGE.description or APP.DESCRIPTION }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% if APP.PUBLIC_PATH and APP.PUBLIC_PATH != '/' %}
+    <base href="{{ APP.PUBLIC_PATH }}">
+    {% endif %}
+
+    {% include 'partials/head-js.html' %}
+
+    <!-- block-head -->
+    {% block head %}{% endblock %}
+    <!-- /block-head -->
+
+    {% include 'partials/counters-head.html' %}
+
+    {% include 'partials/open-graph.html' %}
+
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    {% block body %}{% endblock %}
+
+    {% include 'partials/svg-sprite.html' %}
+
+    {% include 'partials/browser-sync.html' %}
+    {% include 'partials/debug-vars.html' %}
+
+    {% include 'partials/counters-body.html' %}
+    {% block scripts %}{%endblock%}
+</body>
+</html>
